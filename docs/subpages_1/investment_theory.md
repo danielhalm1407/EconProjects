@@ -4,4 +4,7 @@ A look at models to try to predict the expectation and distribution of the rate 
 
 ## An Example of what we found:
 
-![alt text](image.png)
+![alt text](image-1.png)
+
+![alt text](../../Notebooks/plot2.svg)
+
