@@ -21,8 +21,3 @@ A collection of pet/passion projects in economic and financial theory, policy an
 #### Project 3: Transit Fantasy
 
 - Import existing Google MyMaps transit fantasy maps (as KML Files) and take them even further. Purely for fun.
-
-## Contents
-
-
-### [Investment Theory]

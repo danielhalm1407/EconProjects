@@ -1,0 +1,22 @@
+# Core
+pandas>=2.1
+
+# Add pkgs required by VS Code
+ipykernel
+
+# Visualisation
+seaborn
+matplotlib>=3.7
+
+# SQL
+jupysql>=0.10.4
+sqlalchemy>=2.0.23
+
+# Web-Scraping and API Requests
+scrapy
+
+# Optimisation
+scipy
+
+# Decoding/Reading in Files
+unidecode
