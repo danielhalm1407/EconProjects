@@ -52,7 +52,8 @@ A collection of pet/passion projects in economic and financial theory, policy an
 │       ├── inv_theory.ipynb (Functions needed for the Investment_Theory sub-project)
 │       └── ubi_test.py (Functions needed for the UBI_Test sub-project)
 │   └── scripts (runnable Python scripts)
-│       └── nb03.py (runs NB03 notebook as a script)
+│       ├── nb03.py (runs NB03 notebook as a script)
+│       └── sql_in.py (saves the excel files into a database as tables)
 ├── Transit Fantasy
 │   ├── Caracas Metro Google Maps Layers
 │   ├── LA Metro Google Maps Layers
