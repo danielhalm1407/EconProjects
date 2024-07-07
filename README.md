@@ -45,14 +45,14 @@ A collection of pet/passion projects in economic and financial theory, policy an
 │       ├── NB02_Investment_Theory_2.ipynb
 │       └── NB03_Total_Return_Predictor
 │   └── UBI_Test    
-│       └── NB04_UBI_Test.ipynb
+│       └── NB05_UBI_Test.ipynb
 ├── shared_data (early exchanging data between group members)
 ├── src
 │   └── econ_utils (our Python package)
 │       ├── inv_theory.ipynb (Functions needed for the Investment_Theory sub-project)
 │       └── ubi_test.py (Functions needed for the UBI_Test sub-project)
 │   └── scripts (runnable Python scripts)
-│       ├── nb03.py (runs NB03 notebook as a script)
+│       ├── nb04.py (runs NB04 notebook as a script)
 │       └── sql_in.py (saves the excel files into a database as tables)
 ├── Transit Fantasy
 │   ├── Caracas Metro Google Maps Layers
