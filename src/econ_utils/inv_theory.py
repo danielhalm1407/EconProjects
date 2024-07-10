@@ -3,7 +3,7 @@ import numpy as np
 import sys
 import os
 
-__file__ = "nb03.py"
+__file__ = "inv_theory.py"
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 R = 0.055

@@ -6,6 +6,8 @@ from scipy.optimize import root
 import matplotlib.pyplot as plt
 import traceback
 
+__file__ = "nb04.py"
+
 # Debug function to print the call stack
 def print_call_stack():
     stack = traceback.format_stack()
