@@ -30,10 +30,10 @@ def get_sql_engine(DATABASE_PATH = DATABASE_PATH):
 engine = get_sql_engine()
 
 # Create a table with Pandas
-def make_table(df, name = "table_1", engine = engine):
+def make_table(df, name, engine = engine, if_exists='append'):
     with engine.connect() as conn:
         pass
-    df.to_sql(name, engine, if_exists='append', index=False)
+    df.to_sql(name, engine, if_exists=if_exists, index=False)
 
 #SQL QUERIES
 DROP_TABLE_SQL_QUERY = "DROP TABLE IF EXISTS bloomberg_rankings;"

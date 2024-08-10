@@ -41,6 +41,7 @@ def main():
 
     # Insert the parent directory into sys.path
     parent_dir = os.path.abspath(os.path.join(current_dir, '..'))
+    data_dir = os.path.abspath(os.path.join(current_dir, '..', '../data'))
     if parent_dir not in sys.path:
         sys.path.insert(0, parent_dir)
         print(f'Inserting Parent Path: {parent_dir}')
@@ -52,6 +53,7 @@ def main():
     try:
         import econ_utils
         from econ_utils import inv_theory as inv
+        from econ_utils import sql_queries as sqlq
         print('Successfully imported inv_theory as inv from econ_utils')
     except ImportError as e:
         print(f'Error importing econ_utils: {e}')
@@ -62,26 +64,20 @@ def main():
     if use_default == 'n':
         print("You will need to enter custom values")
         R, maturity_g, time_frame = get_custom_values()
+        inv.get_start_vals(R, maturity_g, time_frame)  # Update parameters in inv_theory.py
     else:
-        # Default values
+        # Default values (you can also use inv.get_start_vals to set default values)
         R = 0.055
         maturity_g = 0.073
         time_frame = 10
+        inv.get_start_vals(R, maturity_g, time_frame)  # Set default values in inv_theory.py
 
     # The MAIN SCRIPT
-    asset_df = pd.read_excel(os.path.join(sys.path[0],"../data/Bloomberg_Rankings.xlsx"), sheet_name="Mid Cap and Above")
-    asset_df = asset_df.dropna(subset=['5 YR Forecast EPS Growth'])
 
-    # Apply predict_multiple function using user-defined or default values
-    asset_df["5Y Multiple"] = asset_df["5 YR Forecast EPS Growth"].apply(lambda x: inv.predict_multiple(x, 5, R=R, maturity_g=maturity_g, time_frame=time_frame))
-
-    # Apply predict_roi function using user-defined or default values
-    asset_df["5Y Expected Annualised TR (Change in Multiple)"] = [inv.predict_roi(asset_df["5 YR Forecast EPS Growth"][i], asset_df["Multiple"][i], asset_df["5Y Multiple"][i]) for i in asset_df.index]
-
-    # Save results to Excel
-    asset_df.to_excel(os.path.join(sys.path[0],"../data/Top_Stocks.xlsx"))
-
-    print("Total Returns Spat out to Top_Stocks Accordingly")
+    df = pd.read_sql("SELECT * FROM 'table_2'", sqlq.engine)
+    df = inv.clean_and_fill(df)
+    df = inv.gen_returns(df)
+    df.to_excel(os.path.join(data_dir, "unfiltered_basket_2.xlsx"))
 
 print("Script is being executed")
 print_call_stack()
